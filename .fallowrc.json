@@ -1,0 +1,195 @@
+{
+  // This file is JSONC: fallow reads these comments; generic JSON tools may not.
+  "$schema": "./node_modules/fallow/schema.json",
+
+  // Manual entry points on top of the ones fallow discovers automatically
+  // (index.html via the Vite plugin, tests via the Vitest plugin, config files).
+  "entry": [
+    // Vite SPA bootstrap
+    "src/main.ts",
+
+    // unplugin-vue-router (vue-router/vite, see vite.config.ts): every .vue
+    // under src/pages is a route except **/{components,layouts,data,types}/**.
+    // Routes in this repo live at depth 0-1; deeper route folders would need
+    // another "src/pages/*/*/*.vue" line.
+    "src/pages/*.vue",
+    "src/pages/*/*.vue",
+
+    // vite-plugin-vue-layouts: every .vue in src/layouts is a selectable layout.
+    "src/layouts/*.vue",
+
+    // unplugin-vue-components (dirs: ["src/components"]): every .vue here is
+    // auto-registered and can be used in any template without an import.
+    // Unused auto-registered components surface via the unrendered-components rule.
+    "src/components/**/*.vue",
+
+    // unplugin-auto-import dirs (dts: src/types/auto-import.d.ts): every export
+    // of these modules is globally available without an import statement.
+    "src/composables/**/*.ts",
+    "src/constants/**/*.ts",
+    "src/stores/**/*.ts"
+  ],
+
+  "ignorePatterns": [
+    // Vendored shadcn-vue registry components, updated via the shadcn CLI.
+    // Also excluded from tsconfig.app.json and eslint.config.mjs.
+    "src/components/ui/**",
+
+    // Generated declaration files (unplugin-auto-import, unplugin-vue-components,
+    // unplugin-vue-router). Regenerated on dev/build; stale entries caused
+    // false unresolved-import findings.
+    "src/types/auto-import.d.ts",
+    "src/types/auto-import-components.d.ts",
+    "src/types/route-map.d.ts",
+
+    // Local agent-harness tooling (untracked, absent in CI): vendored skills
+    // with their own scripts, and the opencode session plugin. Silences the
+    // skipped-source-dotdir warning and keeps their findings out of the gate.
+    ".agents/**",
+    ".claude/**",
+    ".opencode/**",
+    ".harness/**",
+    ".codex/**",
+    ".codegraph/**",
+    ".comet/**",
+    ".pi/**",
+    ".trae/**"
+  ],
+
+  // Packages no analyzed source imports but the project genuinely uses.
+  "ignoreDependencies": [
+    // Runs through node_modules/.bin in the simple-git-hooks pre-commit command.
+    "nano-staged",
+    // Only imported by the vendored src/components/ui/** registry (excluded
+    // above): Carousel, Form and Input-OTP components.
+    "embla-carousel-vue",
+    "vee-validate",
+    "vue-input-otp"
+  ],
+
+  // Layered architecture (top -> bottom), modeled on this repo's real
+  // import directions: app > screens > components > state > services >
+  // foundation. A layer may import its own layer and any lower one; upward
+  // imports are boundary-violations. External packages and unzoned files are
+  // unrestricted. auto-imported usages (unplugin-auto-import/components) leave
+  // no import statement, so only explicit edges are enforced.
+  "boundaries": {
+    "zones": [
+      {
+        // Composition root: bootstrap, plugin wiring, router and guards
+        "name": "app",
+        "patterns": [
+          "src/main.ts",
+          "src/App.vue",
+          "src/plugins/**",
+          "src/router/**"
+        ]
+      },
+      {
+        // Route-level screens and layouts
+        "name": "screens",
+        "patterns": [
+          "src/pages/**",
+          "src/layouts/**"
+        ]
+      },
+      {
+        // Reusable app components (vendored src/components/ui/** is ignored)
+        "name": "components",
+        "patterns": [
+          "src/components/**"
+        ]
+      },
+      {
+        // App state and reusable logic
+        "name": "state",
+        "patterns": [
+          "src/composables/**",
+          "src/stores/**"
+        ]
+      },
+      {
+        // API/data-access layer
+        "name": "services",
+        "patterns": [
+          "src/services/**"
+        ]
+      },
+      {
+        // Framework-free shared foundation
+        "name": "foundation",
+        "patterns": [
+          "src/lib/**",
+          "src/utils/**",
+          "src/config/**",
+          "src/constants/**",
+          "src/validators/**",
+          "src/types/**"
+        ]
+      }
+    ],
+    "rules": [
+      // The composition root may wire any layer.
+      { "from": "app", "allow": ["screens", "components", "state", "services", "foundation"] },
+      // Screens orchestrate everything below.
+      { "from": "screens", "allow": ["components", "state", "services", "foundation"] },
+      // Components stay presentational: logic via composables/stores, no direct
+      // data access. Type-only imports of app types (i18n locale) stay rejected:
+      // they move with runtime values today and belong in foundation.
+      { "from": "components", "allow": ["state", "foundation"] },
+      // State composes the data layer. Type-only imports of component-local
+      // nav types (app-sidebar/types) are accepted; erased at compile time.
+      { "from": "state", "allow": ["services", "foundation"], "allowTypeOnly": ["components"] },
+      // Services only depend on the shared foundation.
+      { "from": "services", "allow": ["foundation"] },
+      // Foundation depends on nothing above it. Nav types currently live in
+      // components/app-sidebar/types; allowed as type-only until they move down.
+      { "from": "foundation", "allow": [], "allowTypeOnly": ["components"] }
+    ],
+    "coverage": {
+      // Every source file must belong to a layer; allow-list covers build/
+      // tooling config outside src, harness files, styles and test files
+      // (tests may wire any layer).
+      "requireAllFiles": true,
+      "allowUnmatched": [
+        "*.ts",
+        "*.mjs",
+        "*.cjs",
+        "*.js",
+        "*.html",
+        "**/*.css",
+        "**/__tests__/**",
+        "**/*.test.ts",
+        "**/*.spec.ts",
+        "public/**",
+        ".opencode/**"
+      ]
+    }
+  },
+
+  "overrides": [
+    // Tests are not architecture members: they legitimately import and mock
+    // every layer, so boundary rules do not apply to them.
+    {
+      "files": [
+        "**/__tests__/**",
+        "**/*.test.ts",
+        "**/*.spec.ts"
+      ],
+      "rules": {
+        "boundary-violation": "off"
+      }
+    }
+  ],
+
+  "duplicates": {
+    // Hide pair-only clones; focus on widespread copy-paste worth refactoring.
+    // Lower to 2 to report every duplicate pair.
+    "minOccurrences": 3
+  },
+
+  "rules": {
+    // Keep dependency-hygiene findings advisory; structural rules stay errors.
+    "unused-dependencies": "warn"
+  }
+}

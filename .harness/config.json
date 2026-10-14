@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "platforms": [
+    "opencode",
+    "claude",
+    "pi",
+    "trae",
+    "codex"
+  ],
+  "language": "zh",
+  "workflow": "classic",
+  "index": "ready"
+}

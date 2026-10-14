@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "codegraph": {
+      "command": "harness",
+      "args": [
+        "mcp",
+        "codegraph",
+        "--root",
+        "G:\\aiProj\\shadcn-vue-admin"
+      ],
+      "env": {
+        "CODEGRAPH_TELEMETRY": "0"
+      }
+    }
+  }
+}

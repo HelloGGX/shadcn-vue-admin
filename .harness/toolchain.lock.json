@@ -1,0 +1,260 @@
+{
+  "schemaVersion": 2,
+  "storage": {
+    "kind": "shared"
+  },
+  "components": [
+    {
+      "id": "comet",
+      "version": "0.4.5",
+      "commit": "c90af44a4474662d7853aae76ce785404974fb0a",
+      "upstream": {
+        "kind": "local",
+        "locator": "file:///G:/aiProj/comet/dist",
+        "channel": "stable",
+        "version": "0.4.5",
+        "commit": "c90af44a4474662d7853aae76ce785404974fb0a",
+        "base": {
+          "kind": "npm",
+          "locator": "@rpamis/comet",
+          "channel": "stable",
+          "version": "0.4.5",
+          "commit": "c90af44a4474662d7853aae76ce785404974fb0a"
+        }
+      },
+      "license": "MIT",
+      "artifacts": [
+        {
+          "role": "package",
+          "sha256": "8693a5d0bfe2536e2a89e112755a26be39cb9bb49fabbd4659f637e2f1691fbc"
+        },
+        {
+          "role": "package-metadata",
+          "sha256": "d5afa6326c19a64c2f1c974bfccbc02c689642c009cccd7fd8419d805eab350b"
+        },
+        {
+          "role": "source",
+          "sha256": "02272cba6e3680f5931d37131fc937657d800159af237301ead196005d3fea9f"
+        },
+        {
+          "role": "source",
+          "sha256": "646e71f8088b3cc023575d0936bbc913f3b80996a0922866e0b14a183a3e2279"
+        },
+        {
+          "role": "source",
+          "sha256": "d172581c558321357d8fee85a674dfd5d4f6f0963b665d6c374b60285ba2b71c"
+        },
+        {
+          "role": "license:LICENSE",
+          "sha256": "abea25cd8bad53e51bf6b08955852494c1dd6cc8c3fb08015667cc523b443e36"
+        }
+      ]
+    },
+    {
+      "id": "openspec",
+      "version": "1.14.1",
+      "commit": "87c3595ace6a2e22957f39ebe5b74c2f2316e0cb",
+      "license": "MIT",
+      "artifacts": [
+        {
+          "role": "package",
+          "sha256": "4a88e334938316db6916fd4f3aaf2213e6fc23b4fe327efd2afe7754c2d3b0bf"
+        },
+        {
+          "role": "package-metadata",
+          "sha256": "93c25fc113be569ad5e074c10b51a99b487bff030781e51efea9aa8875ca40a4"
+        },
+        {
+          "role": "source",
+          "sha256": "428b3cf892e0553af2943caadef3a3d40448ac758fc4e3c92f162c236c08e485"
+        },
+        {
+          "role": "license:LICENSE",
+          "sha256": "c3c7235bea1214ab62df643473975c2e8b8848f528901a976693f7d069713e64"
+        }
+      ]
+    },
+    {
+      "id": "superpowers",
+      "version": "7.0.0",
+      "commit": "bb92a77741419a4ab5f06e711a283343f1ada0c3",
+      "license": "MIT",
+      "artifacts": [
+        {
+          "role": "source",
+          "sha256": "496b576d4a4a62c0d72cce4a9e99ff46c57026c07fe503931cbb8afd33006cf2"
+        },
+        {
+          "role": "license:LICENSE",
+          "sha256": "a37e0e9697144819e1d965176ac4ae5bc3fa02d11e7812036bbcadf6dafe2400"
+        }
+      ]
+    },
+    {
+      "id": "codegraph",
+      "version": "1.6.2",
+      "commit": "6560052a6f856855d3f71eee838fd66ccfa4285d",
+      "license": "MIT",
+      "artifacts": [
+        {
+          "role": "release",
+          "sha256": "7455e817ee8032666867a1badeb799b8a884c5f4fea9b444e088a02069b6deea"
+        },
+        {
+          "role": "release-metadata",
+          "sha256": "199dcc7040221f2be464fa9c2316b2d4e5b6707c8028e51278d0b35b1fc7802d"
+        },
+        {
+          "role": "source",
+          "sha256": "bc1c0c636fe970c657a0b3b7e5f4f84d8982e283a2e152d26ea8543fb74c9945"
+        },
+        {
+          "role": "license:LICENSE",
+          "sha256": "e6d98f98c666bebe065ac2492a0a19232cc318d4d67bac3ca42ffb77bacc8809"
+        }
+      ]
+    },
+    {
+      "id": "rtk",
+      "version": "0.51.0",
+      "commit": "e001f773f80b22b7dc4c7a79521b30e35aaef026",
+      "license": "Apache-2.0",
+      "artifacts": [
+        {
+          "role": "release",
+          "sha256": "1623e9b45d28b15122d69e7314776e1123a804224885ce07e7182fb40080f05c"
+        },
+        {
+          "role": "release-metadata",
+          "sha256": "978563a1c08577fc3501a00c28723edb4599f8bb86d95e15a5ed3ff36ee7a193"
+        },
+        {
+          "role": "source",
+          "sha256": "cb8dfde05bfe102c06400d121faa6399a5d590a3f3ba95eae8c53b7e5dab1873"
+        },
+        {
+          "role": "license:LICENSE",
+          "sha256": "4044ade9c21d8b084d3d16a03375cf3b7e166b946a327bb37a3fbbdb53287cfd"
+        }
+      ]
+    },
+    {
+      "id": "ponytail",
+      "version": "5.1.0",
+      "commit": "9cc65d03aa2da1db7121b912d03596409ee340b8",
+      "license": "MIT",
+      "artifacts": [
+        {
+          "role": "package",
+          "sha256": "6393125c23d8da5a1f6848b0401bf546b2b84534b949d8722eb063206688a819"
+        },
+        {
+          "role": "package-metadata",
+          "sha256": "507d4813e56e8b9e57c9da6f942e879d83e7640ff10964b2d6f8a6cb0da31fb3"
+        },
+        {
+          "role": "source",
+          "sha256": "927018dea868f6ba8ca1fc7dd3ba3bb7b4daf3cd905bc5d822d944c67e150073"
+        },
+        {
+          "role": "license:LICENSE",
+          "sha256": "fb1bc6909ac3ef82d5c22106e32ef682b0cff66788fa915fb9b53b15c9d2f3ab"
+        }
+      ]
+    },
+    {
+      "id": "node",
+      "version": "24.21.0",
+      "commit": "955266bfdd854cd280dffd47548673914484e4c0",
+      "license": "MIT",
+      "artifacts": [
+        {
+          "role": "runtime",
+          "sha256": "158f7685b44de51f6c0df1d153526cbcd3e1bc739a8dfc607721cef75de9e541"
+        },
+        {
+          "role": "checksums",
+          "sha256": "f410428039e2c922a14058df067a4482691c9304a5c01a75847f9f3f2d3307f6"
+        },
+        {
+          "role": "source",
+          "sha256": "a6f54defb6fd7c84f41dba13d61e78e9b4e0961712cf61f29715c05f5ced94fc"
+        },
+        {
+          "role": "license:LICENSE",
+          "sha256": "5888dbb9a1d2b18f2c3e6c5f6af1b39de658372b402a0577b002777f14c62ace"
+        }
+      ]
+    },
+    {
+      "id": "ripgrep",
+      "version": "15.2.0",
+      "commit": "e89fff89ac9af12e8d4ce9d5fd07beb408ca730f",
+      "license": "MIT OR Unlicense",
+      "artifacts": [
+        {
+          "role": "release",
+          "sha256": "71b2fef860abe467217a538ff31de02f5258807c0129f771846f87bd029aafc5"
+        },
+        {
+          "role": "release-metadata",
+          "sha256": "e7bf400a45ca82e46ec028666bd1c02d00b5312ceaad2d05479a66b3455489f4"
+        },
+        {
+          "role": "source",
+          "sha256": "af40d0f4cb7a55994906c009a7ba865047f0d487c95bceb8db59ffc4f2173d20"
+        },
+        {
+          "role": "license:COPYING",
+          "sha256": "01c266bced4a434da0051174d6bee16a4c82cf634e2679b6155d40d75012390f"
+        },
+        {
+          "role": "license:LICENSE-MIT",
+          "sha256": "0f96a83840e146e43c0ec96a22ec1f392e0680e6c1226e6f3ba87e0740af850f"
+        },
+        {
+          "role": "license:UNLICENSE",
+          "sha256": "7e12e5df4bae12cb21581ba157ced20e1986a0508dd10d0e8a4ab9a4cf94e85c"
+        }
+      ]
+    },
+    {
+      "id": "sensors",
+      "version": "0.1.4",
+      "upstream": {
+        "kind": "pypi",
+        "locator": "sensors-cli",
+        "channel": "stable",
+        "version": "0.1.4",
+        "commit": ""
+      },
+      "license": "NOASSERTION",
+      "artifacts": [
+        {
+          "role": "package",
+          "sha256": "6d03425a3a83ef264b46e0d992888f5ceb2def72ef05e8d9ef4a460717181fc7"
+        },
+        {
+          "role": "source",
+          "sha256": "c1864203f70318a93dc983e261d373e998982cb4e2bc4d28a7d7645181719252"
+        },
+        {
+          "role": "package-metadata",
+          "sha256": "4392ada1f86d67faab4c762ff3e297ee56f930a410431b5ecb999dddc06e00a5"
+        },
+        {
+          "role": "release",
+          "sha256": "056916ce59c31e27d20b9492e8d3cb3e2f71822aa61be9e566f56e05c8caba62"
+        },
+        {
+          "role": "release-metadata",
+          "sha256": "35f19c72e49cf44c696070790a5d06741e40e95c4fd82220829b8c05fe289ecb"
+        },
+        {
+          "role": "license:NOTICE",
+          "sha256": "3ddf96096d87bfcca018f0d8948aebb1008d7520fe1326354f52954348276e8a"
+        }
+      ]
+    }
+  ]
+}

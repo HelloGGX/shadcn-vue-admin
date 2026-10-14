@@ -1,0 +1,14 @@
+# harness:codegraph:start
+[mcp_servers.codegraph]
+command = "harness"
+args = [
+  "mcp",
+  "codegraph",
+  "--root",
+  "G:\\aiProj\\shadcn-vue-admin"
+]
+cwd = "G:\\aiProj\\shadcn-vue-admin"
+
+[mcp_servers.codegraph.env]
+CODEGRAPH_TELEMETRY = "0"
+# harness:codegraph:end

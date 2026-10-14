@@ -1,0 +1,6 @@
+[install]
+registry = "https://registry.npmmirror.com"
+
+# npmmirror 尚未同步 @fallow-cli 平台二进制包 3.33.1，该 scope 走官方源
+[install.scopes]
+"@fallow-cli" = { url = "https://registry.npmjs.org" }

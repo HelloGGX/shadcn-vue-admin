@@ -12,8 +12,11 @@ import { API_BASE_URL, API_TIMEOUT } from '@/constants/app-config'
  */
 async function handleUnauthorized() {
   const [{ default: router }, { useAuthStore }, { default: pinia }] = await Promise.all([
+    // fallow-ignore-next-line boundary-violation
     import('@/router'),
+    // fallow-ignore-next-line boundary-violation
     import('@/stores/auth'),
+    // fallow-ignore-next-line boundary-violation
     import('@/plugins/pinia/setup'),
   ])
 

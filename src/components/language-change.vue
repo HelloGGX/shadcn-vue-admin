@@ -8,6 +8,8 @@ import type { Language } from '@/plugins/i18n'
 
 import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+// shortcut: locale constants live in app-layer plugins/i18n; move them to src/constants to lift the suppression
+// fallow-ignore-next-line boundary-violation
 import { appLocale, DEFAULT_LOCALE, SUPPORTED_LOCALES } from '@/plugins/i18n'
 
 const { locale } = useI18n()

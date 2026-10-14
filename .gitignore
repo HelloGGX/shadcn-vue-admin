@@ -34,3 +34,15 @@ coverage
 .env.development
 .env.test
 .env.production
+.fallow/
+
+# harness:ignore:start
+/.harness/bundles/
+/.harness/bin/
+/.harness/local/
+/.harness/receipt.json
+/.harness/journal.json
+/.harness/install.lock
+/.harness/staging-*/
+/.codegraph/
+# harness:ignore:end

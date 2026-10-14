@@ -1,0 +1,6 @@
+{
+  "packages": [
+    "../.harness/local/pi-package"
+  ],
+  "enableSkillCommands": true
+}

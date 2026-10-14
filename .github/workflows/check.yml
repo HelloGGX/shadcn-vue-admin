@@ -96,3 +96,34 @@ jobs:
 
       - name: Run tests
         run: pnpm run test:coverage
+
+  fallow:
+    name: Fallow
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CI: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          # fallow audit resolves the merge-base with the target branch
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: 11.28.4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --prefer-offline
+
+      - name: Changed-code gate
+        run: pnpm fallow:audit -- --base "origin/${{ github.base_ref }}" --format github-annotations --quiet

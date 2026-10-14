@@ -1,0 +1,11 @@
+{
+  "exclude": [
+    "/.agents/",
+    "/.claude/",
+    "/.codex/",
+    "/.harness/",
+    "/.opencode/",
+    "/.pi/",
+    "/.trae/"
+  ]
+}

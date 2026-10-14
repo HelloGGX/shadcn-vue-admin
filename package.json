@@ -37,8 +37,10 @@
     "build": "vue-tsc -b && vite build",
     "build:analyze": "ANALYZE=true vite build",
     "preview": "vite preview",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "fallow": "fallow",
+    "fallow:audit": "fallow audit",
     "test": "vitest",
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
@@ -89,6 +91,7 @@
     "@vue/test-utils": "^2.5.1",
     "eslint": "^10.12.0",
     "eslint-plugin-format": "^2.0.1",
+    "fallow": "^3.33.1",
     "happy-dom": "^20.14.5",
     "nano-staged": "^1.0.2",
     "rollup-plugin-visualizer": "^7.1.1",
@@ -108,6 +111,6 @@
     "pre-push": "pnpm build"
   },
   "nano-staged": {
-    "*": "eslint --fix"
+    "src/**/*": "eslint --fix"
   }
 }

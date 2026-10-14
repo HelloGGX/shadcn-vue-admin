@@ -1,0 +1,33 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "harness hook --platform claude"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "harness hook --platform claude"
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "mcp__codegraph__*"
+    ]
+  },
+  "enabledMcpjsonServers": [
+    "codegraph"
+  ]
+}
